@@ -40,9 +40,12 @@ def generate_fractal_noise_2d(shape, res, octaves=1, persistence=0.5):
     
 if __name__ == '__main__':
     import matplotlib.pyplot as plt
+    from time import time
     
     np.random.seed(0)
-    noise = generate_perlin_noise_2d((256, 256), (8, 8))
+    s1 = time()
+    noise = generate_perlin_noise_2d((256, 1256, (8, 8))
+    print('numpy time consuming: ', time()-s1)
     plt.imshow(noise, cmap='gray', interpolation='lanczos')
     plt.colorbar()
     
