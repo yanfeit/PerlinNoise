@@ -1,3 +1,4 @@
+# A horrible idea to generate Perlin noise by python!
 import numpy as np
 from time import time
 
