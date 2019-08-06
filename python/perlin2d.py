@@ -44,7 +44,7 @@ if __name__ == '__main__':
     
     np.random.seed(0)
     s1 = time()
-    noise = generate_perlin_noise_2d((256, 1256, (8, 8))
+    noise = generate_perlin_noise_2d((256, 256), (8, 8))
     print('numpy time consuming: ', time()-s1)
     plt.imshow(noise, cmap='gray', interpolation='lanczos')
     plt.colorbar()
