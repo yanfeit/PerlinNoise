@@ -98,12 +98,12 @@ if __name__ == '__main__':
 	plt.savefig("octavenoise2d.png")
 	plt.show()
 
-	noise = octavePerlin3d((1, 4, 4), (45, 256, 256), 4)
+	noise = octavePerlin3d((1, 4, 4), (40, 256, 256), 4)
 	fig = plt.figure()
 	images = [[plt.imshow(layer, cmap='hot', interpolation='lanczos', animated=True)] for layer in noise]
-	animation = animation.ArtistAnimation(fig, images, interval=50, blit=True)
+	animation = animation.ArtistAnimation(fig, images, interval=50, blit=False)
 	plt.tight_layout()
-	animation.save('cppnoise.gif', writer="imagemagick", fps = 15)
+	animation.save('cppnoise.gif', writer="imagemagick", fps = 20, dpi = 100)
 	plt.show()
 
 
