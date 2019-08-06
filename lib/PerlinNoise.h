@@ -1,6 +1,7 @@
 /*
-The code essentially is from the WIKI page.
+The code essentially is from the WIKI page and Adian's webpage.
 https://en.wikipedia.org/wiki/Perlin_noise
+https://flafla2.github.io/2014/08/09/perlinnoise.html
 
 Copyright (c) 2019 by Yanfei Tang (yanfeit89@163.com).
 Open source software license: MIT
@@ -48,7 +49,7 @@ inline Float lerp(Float a0, Float a1, Float w){
 }
 
 //Create a 2D array of gradients whose directions are random.
-Vector2D** gradient2D(int iymax, int ixmax);
+Vector2D** gradient2D(int ixmax, int iymax);
 
 // Computes the dot product of the distance and gradient vectors.
 Float dotGridGradient2D(int ix, int iy, Float x, Float y, Vector2D** gradients);
@@ -58,8 +59,22 @@ Float perlin2D(Float x, Float y, Vector2D** gradients);
 
 // create dll for ctype python usage
 extern "C" {
-	Float* perlinNoise2D(int shape_x, int shape_y, int res_x, int res_y);
+	Float* perlinNoise2D(int lattice_x, int lattice_y, int res_x, int res_y);
 } 
+
+// Create a 3D array of gradients.
+Vector3D*** gradient3D(int ixmax, int iymax, int izmax);
+
+// Compute the dot product of the distance and gradient vectors.
+Float dotGridGradient3D(int ix, int iy, int iz, Float x, Float y, Float z, Vector3D*** gradients);
+
+// return perlin noise on a 3D map
+Float perlin3D(Float x, Float y, Float z, Vector3D*** gradients);
+
+// for python usage
+extern "C" {
+	Float* perlinNoise3D(int lattice_x, int lattice_y, int lattice_z, int res_x, int res_y, int res_z);
+}
 
 
 
