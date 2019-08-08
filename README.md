@@ -4,7 +4,7 @@ This note is about Perlin noise and accelerating Python codes using C dynamic li
 
 My original motivation is to study how to generate a smooth noise, not a white noise. Perlin noise is definitely a good choice. I like to use Python. However, Python does not have the speed to do this in a fast way. If multiples of for loops are unavoided, the performance of Python is horrible! One of the options to accelerate Python is taking the advantage of numpy, if one has the superior numpy skill like Pvigier did in this [post](https://pvigier.github.io/2018/06/13/perlin-noise-numpy.html). Building such skills require fluency about numpy. An alternative way is accerlateing Python by using C dynamic library. 
 
-To build the C dynamic library, use the following in terminal.
+To build the C dynamic library, use the following codes in the terminal.
 
 ```bash
 $ mkdir build
@@ -16,7 +16,7 @@ $ cd ../python
 $ python cppnoise.py # Use the library as an example in the cppnoise.py code
 ```
 
-It generates a dynamics library `libperlinNoise.dylib` in the folder `./build/lib`. To illustrate the usage of the dynamics library, just move it to the python folder and execute either `cppnoise.py` or `caltime.py`.
+It generates a dynamic library `libperlinNoise.dylib` in the folder `./build/lib`. To illustrate the usage of the dynamic library, just move it to the python folder and execute either `cppnoise.py` or `caltime.py`.
 
 ## Speed Comparison
 
@@ -30,7 +30,7 @@ $ python caltime.py
 3D noise, cpp time consuming:  0.1645211935043335
 ```
 
-Let me remind that there is no single for loop in Pvigier's numpy code. Numpy's vectorized features are fully taken advantaged of. Needlessly to say, C code can do this more than 10 times faster than numpy! 
+Let me remind that there is no single for loop in Pvigier's numpy code. Numpy's vectorized features are fully taken advantaged of. Needlessly to say, C code still can do this more than 10 times faster than numpy! 
 
 ## Images
 
